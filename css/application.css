@@ -504,7 +504,7 @@ ol ol ol ol {
   color: #20242b;
 }
 
-.bg-secondary, body {
+.bg-secondary {
   background-color: #20242b;
 }
 
@@ -1174,13 +1174,13 @@ h3,
 .h3, h4,
 .h4, h5,
 .h5, h6,
-.h6, .block--quote__author, .block__title, .block__action {
+.h6 {
   font-family: 'Open Sans', sans-serif;
 }
 
 h1,
 .h1, h2,
-.h2, .block--quote__quote {
+.h2 {
   font-family: 'Playfair Display', serif;
 }
 
@@ -1578,7 +1578,7 @@ code {
   z-index: -1;
 }
 
-.depth-1, .block__title, .block__action, .block__action:after, header:after {
+.depth-1 {
   z-index: 100;
 }
 
@@ -1937,174 +1937,6 @@ input[type=reset] {
 .btn--ghost--tertiary:hover {
   color: #000;
   background: #fff;
-}
-
-.block--primary, .block--secondary {
-  display: block;
-  position: relative;
-  padding: 10rem 4rem;
-  text-align: center;
-  background-size: cover;
-}
-
-.block--quote {
-  text-align: center;
-  border: 2px solid #fff;
-}
-.block--quote:hover * {
-  opacity: .1;
-}
-.block--quote:hover .block--quote__quote {
-  opacity: 1;
-  transform: translate3d(0, -40px, 0);
-}
-.block--quote.block--secondary {
-  background-color: #fff;
-}
-.block--quote.block--secondary [class^=spacer]:before,
-.block--quote.block--secondary [class^=spacer]:after {
-  background-color: #06cb86;
-}
-.block--quote * {
-  transition: opacity 200ms ease-out;
-}
-
-.block--quote__author {
-  font-size: 10px;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.block--quote__quote {
-  font-size: 32px;
-  font-size: 3.2rem;
-  max-width: 500px;
-  margin: 0 auto;
-  line-height: 41px;
-  letter-spacing: 1px;
-  transform: scale(0.8);
-  transition-property: transform, opacity;
-  transition-duration: 200ms;
-  transition-timing-function: ease-out;
-}
-
-.block--primary {
-  color: #fff;
-}
-.block--primary:hover {
-  color: #fff;
-}
-
-.block--secondary {
-  color: #20242b;
-}
-.block--secondary:hover {
-  color: #20242b;
-}
-
-.block--cta:after {
-  content: "";
-  z-index: 0;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(6, 203, 134, 0.6);
-  transition: background-color 200ms cubic-bezier(0.5, -0.5, 0.5, 1.5);
-}
-.block--cta:hover:after {
-  background-color: rgba(6, 203, 134, 0.8);
-}
-.block--cta:hover .block__action {
-  color: #06cb86;
-}
-.block--cta:hover .block__action:after {
-  width: 300px;
-  height: 300px;
-  margin-top: -150px;
-  margin-left: -150px;
-}
-.block--cta.block--secondary:after {
-  background-color: rgba(255, 255, 255, 0.6);
-}
-.block--cta.block--secondary:hover:after {
-  background-color: rgba(255, 255, 255, 0.8);
-}
-.block--cta.block--secondary:hover .block__action {
-  color: #fff;
-}
-.block--cta.block--secondary .block__action {
-  color: #20242b;
-  border-color: #20242b;
-}
-.block--cta.block--secondary .block__action:after {
-  background-color: #20242b;
-}
-
-.block__title {
-  font-size: 35px;
-  font-size: 3.5rem;
-  position: relative;
-  max-width: 500px;
-  margin: 0 auto 4rem;
-  line-height: 50px;
-  letter-spacing: 1px;
-  transition: transform 200ms cubic-bezier(0.5, -0.5, 0.5, 1.5);
-}
-
-.block__action {
-  font-size: 10px;
-  font-size: 1rem;
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-  padding: 1.5rem 2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  border: 2px solid #fff;
-  transition-property: transform, color;
-  transition-duration: 200ms;
-  transition-timing-function: cubic-bezier(0.5, -0.5, 0.5, 1.5);
-}
-.block__action:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  margin-top: 0;
-  margin-left: 0;
-  background-color: #fff;
-  border-radius: 300px;
-  transition-property: width, height, margin;
-  transition-duration: 200ms;
-  transition-timing-function: cubic-bezier(0.5, -0.5, 0.5, 1.5);
-}
-
-header {
-  position: relative;
-  color: #000;
-  background-size: cover;
-}
-header:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(32, 36, 43, 0.8);
-}
-header h4 {
-  line-height: 2;
 }
 
 /*# sourceMappingURL=application.css.map */
