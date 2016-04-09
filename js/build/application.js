@@ -30,6 +30,7 @@ $(document).ready(function() {
 		// Create the defaults once
 		var pluginName = "meetupApi",
 			defaults = {
+				target: document,
 				propertyName: "value"
 			};
 
@@ -50,6 +51,7 @@ $(document).ready(function() {
 		// Avoid Plugin.prototype conflicts
 		$.extend( Plugin.prototype, {
 			init: function() {
+				console.log('bla');
 				requestEvents();
 			},
 
