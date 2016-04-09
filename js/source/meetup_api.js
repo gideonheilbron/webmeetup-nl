@@ -34,8 +34,8 @@
 					"NOV",
 					"DEC"
 				],
-			$main_element = $("body main");
-			console.log($main_element);
+			$main_element = null,
+			$events_wrapper = null;
 
 		// The actual plugin constructor
 		function Plugin ( element, options ) {
@@ -54,8 +54,10 @@
 		// Avoid Plugin.prototype conflicts
 		$.extend( Plugin.prototype, {
 			init: function() {
-				this.createTemplate("event", ".event");
-				this.requestEvents();
+				this.createTemplate("event", ".events__item");
+				this.requestApi("https://api.meetup.com/2/events?&sign=true&photo-host=public&group_urlname=webmeetup&page=5", );
+
+				$events_wrapper = $("div.events");
 			},
 
 			createTemplate: function(template_name, template_selector) {
@@ -64,27 +66,27 @@
 				$template_element.remove();
 			},
 
-			requestEvents: function() {
+			requestApi: function(url, request_type) {
 				$.ajax({
 					method: "POST",
-					url: "https://api.meetup.com/2/events?&sign=true&photo-host=public&group_urlname=webmeetup&page=5",
+					url: url,
 					dataType: "jsonp"
 				})
 				.done(function(data) {
-					for (var event_index in data.results) {
-						var event = data.results[event_index]
+					for (var item_index in data.results) {
+						var item = data.results[item_index]
 							,	event_date = new Date(event.time)
-							,	$new_element = $($(templates["event"]).clone());
+							,	$new_element = $($(templates[request_type]).clone());
 
-						$new_element.find(".event_date-day").html(event_date.getDate());
-						$new_element.find(".event_date-month").html(months_list[event_date.getMonth()]);
+						$new_element.find(".date__day").html(event_date.getDate());
+						$new_element.find(".date__month").html(months_list[event_date.getMonth()]);
 						console.log($new_element);
-						$("main").append($new_element);
-						$main_element.append($new_element);
-						console.log(event);
+						$events_wrapper.append($new_element);
 					}
 				});
-			}
+			},
+
+
 		} );
 
 		// A really lightweight plugin wrapper around the constructor,

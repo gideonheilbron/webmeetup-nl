@@ -31,8 +31,9 @@
 //  Component stylesheets, add a new file for every component you create
 ////////////////////////
 
-@import 'components/form';
-@import 'components/button';
+@import 'modules/form';
+@import 'modules/button';
+@import 'modules/events';
 
 
 ////////////////////////
