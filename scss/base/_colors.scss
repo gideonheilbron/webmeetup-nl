@@ -1,0 +1,31 @@
+//////////////////
+//
+//	File: _colors.scss
+//	Description: Color variables, these get used for cl and bg classes
+//
+//////////////////
+
+
+$colors:
+	'white' $cl-white,
+	'primary' $cl-primary,
+	'secondary' $cl-secondary,
+	'tertiary' $cl-tertiary,
+	'quaternary' $cl-quaternary,
+	'quinary' $cl-quinary;
+
+
+////////////////////////
+//	Loop through colors given above
+////////////////////////
+
+@each $name, $color in $colors {
+
+	.cl-#{$name} {
+		color: $color
+	}
+
+	.bg-#{$name} {
+		background-color: $color
+	}
+}

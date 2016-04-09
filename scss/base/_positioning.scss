@@ -1,0 +1,62 @@
+//////////////////
+//
+//	File: _positioning.scss
+//	Description: Position related classes. Don't use these too much, it's fugly.
+//
+//////////////////
+
+
+////////////////////////
+//	Positions
+////////////////////////
+
+.position-relative {
+	position: relative;
+}
+
+.position-absolute {
+	position: absolute;
+}
+
+.position-fixed {
+	position: fixed;
+}
+
+
+////////////////////////
+//	Floats
+////////////////////////
+
+.pull {
+	float: left;
+}
+
+.push {
+	float: right;
+}
+
+
+////////////////////////
+//	Clears
+////////////////////////
+
+.clear-left {
+	clear: left;
+}
+
+.clear-right {
+	clear: right;
+}
+
+.clear-both {
+	clear: both;
+}
+
+
+////////////////////////
+//	Displays
+////////////////////////
+
+.inline-block {
+	display: inline-block;
+}

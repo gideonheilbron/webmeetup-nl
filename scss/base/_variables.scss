@@ -1,0 +1,99 @@
+//////////////////
+//
+//	File: _variables.scss
+//	Description: Variables like colors and distances
+//	TODO: Remove defaults from this file and set these in the component file
+//
+//////////////////
+
+
+///////////////////////
+//	Grid settings
+///////////////////////
+
+$grid-variant:            'class'; // Options: 'class' (default) or 'placehold'
+// Description: 'class' outputs classes like '.md12', 'placehold' outputs placehold selectors like '%md12' (no bloat!)
+
+$whitespace-count:        5; // How many margin/padding classes will be generated (eg: p1, m1, etc.)
+
+$xs-min-width:            0 !default;
+$sm-min-width:            20rem !default; // iPhone 4 width+
+$md-min-width:            48rem !default; // iPad width+
+$lg-min-width:            80rem !default; // Laptop width+
+$xl-min-width:            103.1rem !default; // Desktop width+
+
+// Grid max
+$xs-max-width:            $sm-min-width;
+$sm-max-width:            $md-min-width; // iPhone 6+ max-width
+$md-max-width:            $lg-min-width; // Tablet max-width
+$lg-max-width:            $xl-min-width; // Laptop max-width
+$xl-max-width:            200rem; // Great scott!
+
+// Grid settings
+$column-count:            12 !default;
+$gutter:                  30px !default;
+$wrap-width:              $md-max-width !default;
+$column-px-width:         $wrap-width / $column-count;
+$column-percentage-width: ($column-px-width / $wrap-width) * 100%;
+$devices:                 ('xs', 'xs: phone (max-width: 320)', $xs-min-width, $xs-max-width),
+										('sm', 'sm: large phone (min-width: 320)', $sm-min-width, $sm-max-width),
+										('md', 'md: tablet (min-width: 768)', $md-min-width, $md-max-width),
+										('lg', 'lg: laptop (min-width: 1280)', $lg-min-width, $lg-max-width),
+										('xl', 'xl: desktop (min-width: 1650)', $xl-min-width, $xl-max-width);
+
+
+///////////////////////
+//	Whitespace
+///////////////////////
+
+$padding:                 1rem;
+$margin:                  1rem;
+$padding-percentage:      2%;
+$margin-percentage:       2%;
+
+
+///////////////////////
+//	Border
+///////////////////////
+
+$border-style:            solid;
+$border-color:            rgba(0, 0, 0, .1);
+$border-radius:           3px;
+$border-1:                1px;
+$border-2:                2px;
+$border-3:                3px;
+
+
+///////////////////////
+//	Typography
+///////////////////////
+
+$base-font:               'Helvetica Neue', Helvetica, sans-serif !default; // TODO: Don't forget these!
+$mono-font:               'Office Code Pro', Monaco, Consolas, monospace !default;
+$font-size:               16px;
+$line-height:             1.6;
+
+
+///////////////////////
+//	Colors
+///////////////////////
+
+$cl-white:                #fff;
+$cl-grey:                 #ccc;
+$cl-black:                #000;
+
+$cl-primary:              #06cb86;
+$cl-secondary:            #20242b;
+$cl-tertiary:             #181b20;
+$cl-quaternary:           #f8f8f8;
+$cl-quinary:              #d5573c;
+
+$cl-gold:                 #b0976d;
+
+
+///////////////////////
+//	Animation
+///////////////////////
+
+$cubic-bezier:            cubic-bezier(.5, -.5, .5, 1.5);
+$duration:                200ms;

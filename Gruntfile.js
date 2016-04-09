@@ -83,29 +83,6 @@ module.exports = function(grunt){
       },
     },
 
-    grunticon: {
-      icons: {
-        files: [{
-          expand: true,
-          cwd: 'icons',
-          src: ['*.svg', '*.png'],
-          dest: 'images/generated'
-        }],
-        options: {
-          template: 'icons/icon-template.hbs',
-          cssprefix: '.i-',
-          previewhtml: false, // IGNORE THE ERROR THIS LINE THROWS! We don't want an example file and Grunticon doesn't provide a way to disable this output. Grunticon runs fine even while it gives an error :)
-          datasvgcss: '../../scss/generated/icons-svg.scss',
-          datapngcss: '../../scss/generated/icons-png.scss',
-          urlpngcss: '../../scss/generated/icons-fallback.scss',
-          loadersnippet: '../../js/generated/grunticon.loader.js',
-          pngfolder: '/',
-          pngpath: '/',
-          enhanceSVG: true
-        }
-      }
-    },
-
     concat: {
       dev: {
         src: [
@@ -118,13 +95,13 @@ module.exports = function(grunt){
         src: [
           'js/assets/*.js'
         ],
-        dest: 'js/generated/assets.js'
+        dest: 'js/build/assets.js'
       }
     },
 
     bower_concat: {
       all: {
-        dest: 'js/generated/bower_assets.js'
+        dest: 'js/build/assets.js'
       }
     },
 
@@ -138,7 +115,7 @@ module.exports = function(grunt){
       },
       assets: {
         files: {
-          'js/build/assets.js': ['js/generated/bower_assets.js', 'js/generated/assets.js']
+          'js/build/assets.js': ['js/assets.js']
         }
       }
     }
@@ -149,10 +126,7 @@ module.exports = function(grunt){
     ['build', 'notify:sass']
   );
   grunt.registerTask('build',
-    ['images', 'newer:sass', 'concat', 'newer:postcss']
-  );
-  grunt.registerTask('images',
-    ['grunticon:icons']
+    ['newer:sass', 'concat', 'newer:postcss']
   );
   grunt.registerTask('assets',
     ['bower_concat', 'concat:assets', 'uglify:assets','notify:assets']

@@ -1,0 +1,52 @@
+//////////////////
+//
+//	File: _utilities.scss
+//	Description: Various small utilities classes
+//
+//////////////////
+
+
+////////////////////////
+//  Textareas
+////////////////////////
+
+.resize-none {
+	resize: none;
+}
+
+.resize-vertical {
+	resize: vertical;
+}
+
+.resize-horizontal {
+	resize: horizontal;
+}
+
+
+////////////////////////
+//  Cursors
+////////////////////////
+
+.cursor-pointer {
+	cursor: pointer;
+}
+
+.no-pointer-events {
+	pointer-events: none;
+}
+
+.disabled {
+	opacity: .5;
+	cursor: not-allowed;
+	pointer-events: none;
+}
+
+
+////////////////////////
+//  Horizontal rule
+////////////////////////
+
+hr {
+	border: 0;
+	border-bottom: 1px solid fade-out($cl-black, .9);
+}

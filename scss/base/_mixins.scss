@@ -1,0 +1,48 @@
+//////////////////
+//
+//	File: _mixins.scss
+//	Description: Nice mixins to make your life easier
+//
+//////////////////
+
+
+////////////////////////
+//	Convert px to rem
+////////////////////////
+
+@mixin font-size($size: 1.6) {
+	font-size: $size + px;
+	font-size: ($size / 10) + rem;
+}
+
+
+////////////////////////
+//	Animation helper
+////////////////////////
+
+@mixin animation($type, $duration, $direction: null, $timing: null) {
+
+	@if $direction == null {
+		animation: #{$type} $duration $timing;
+	} @else {
+		animation: #{$type}--#{$direction} $duration $timing;
+	}
+}
+
+////////////////////////
+//	If you layout correctly you should not need a clearfix
+////////////////////////
+
+@mixin clearfix {
+	*zoom: 1; // IE 6/7 fix
+
+	&:before,
+	&:after {
+		content: '';
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+}

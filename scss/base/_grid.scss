@@ -1,0 +1,192 @@
+//////////////////
+//
+//	File: _grid.scss
+//	Description: Default grid styling
+//
+//////////////////
+
+
+////////////////////////
+//	Breakpoint indicator
+////////////////////////
+
+body:after {
+	@extend .depth-10;
+	position: fixed;
+	right: 5px;
+	bottom: 5px;
+	display: block;
+	padding: 5px;
+	color: $cl-white;
+	background-color: rgba($cl-black, .8);
+}
+
+
+////////////////////////
+//	Group
+////////////////////////
+
+.group {
+	@include clearfix;
+	margin: 0 $gutter / -2;
+}
+
+
+////////////////////////
+//	Containers
+////////////////////////
+
+.container {
+	@include clearfix;
+	width: 100%;
+	max-width: $sm-max-width;
+	margin: 0 auto;
+	padding: 0 $gutter / 2;
+	@media screen and (min-width: $xs-min-width) { max-width: 100%; }
+	@media screen and (min-width: $sm-min-width) { max-width: $sm-max-width;  }
+	@media screen and (min-width: $md-min-width) { max-width: $md-max-width; }
+	@media screen and (min-width: $lg-min-width) { max-width: $lg-max-width; }
+}
+
+.container-fluid {
+	width: 100%;
+	float: left;
+	clear: both;
+
+	.group {
+		margin: 0;
+	}
+
+	.container {
+		padding: 0;
+	}
+}
+
+
+////////////////////////
+//	Grid loop for creating classes like '.xs12' and '.md6'
+////////////////////////
+
+@each $device, $description, $min-width, $max-width in $devices {
+
+	@media screen and (min-width: $min-width) {
+
+		body:after {
+			content: "#{$description}";
+		}
+
+		@for $column from 1 through $column-count {
+
+			@if $grid-variant == 'placehold' {
+				%#{$device}#{$column} {
+					float: left;
+					min-height: 1px;
+					padding-left: $gutter / 2;
+					padding-right: $gutter / 2;
+					position: relative;
+					width: ($column * $column-percentage-width);
+				}
+			} @else {
+				.#{$device}#{$column} {
+					float: left;
+					min-height: 1px;
+					padding-left: $gutter / 2;
+					padding-right: $gutter / 2;
+					position: relative;
+					width: ($column * $column-percentage-width);
+				}
+			}
+		}
+	}
+}
+
+
+////////////////////////
+//	Breakpoint mixins for grid
+//	TODO: Rewrite these mixins
+////////////////////////
+
+@mixin xs($direction: null) {
+	@if $direction == '>' {
+		@media screen and (min-width: $xs-min-width) {
+			@content;
+		}
+	}
+	@if $direction == '<' {
+		@media screen and (max-width: $xs-max-width) {
+			@content;
+		}
+	} @else {
+		@media screen and (min-width: $xs-min-width) and (max-width: $xs-max-width) {
+			@content;
+		}
+	}
+}
+
+@mixin sm($direction: null) {
+	@if $direction == '>' {
+		@media screen and (min-width: $sm-min-width) {
+			@content;
+		}
+	}
+	@if $direction == '<' {
+		@media screen and (max-width: $sm-max-width) {
+			@content;
+		}
+	} @else {
+		@media screen and (min-width: $sm-min-width) and (max-width: $sm-max-width) {
+			@content;
+		}
+	}
+}
+
+@mixin md($direction: null) {
+	@if $direction == '>' {
+		@media screen and (min-width: $md-min-width) {
+			@content;
+		}
+	}
+	@if $direction == '<' {
+		@media screen and (max-width: $md-max-width) {
+			@content;
+		}
+	} @else {
+		@media screen and (min-width: $md-min-width) and (max-width: $md-max-width) {
+			@content;
+		}
+	}
+}
+
+@mixin lg($direction: null) {
+	@if $direction == '>' {
+		@media screen and (min-width: $lg-min-width) {
+			@content;
+		}
+	}
+	@if $direction == '<' {
+		@media screen and (max-width: $lg-max-width) {
+			@content;
+		}
+	} @else {
+		@media screen and (min-width: $lg-min-width) and (max-width: $lg-max-width) {
+			@content;
+		}
+	}
+}
+
+@mixin xl($direction: null) {
+	@if $direction == '>' {
+		@media screen and (min-width: $xl-min-width) {
+			@content;
+		}
+	}
+	@if $direction == '<' {
+		@media screen and (max-width: $xl-max-width) {
+			@content;
+		}
+	} @else {
+		@media screen and (min-width: $xl-min-width) and (max-width: $xl-max-width) {
+			@content;
+		}
+	}
+}

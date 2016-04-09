@@ -1,0 +1,179 @@
+//////////////////
+//
+//	File: _animations.scss
+//	Description: Some default animation keyframes
+//
+//////////////////
+
+
+@keyframes fade--in {
+
+	from {
+		opacity: 0;
+
+	} to {
+		opacity: 1;
+	}
+}
+
+@keyframes fade--out {
+
+	from {
+		opacity: 1;
+
+	} to {
+		opacity: 0;
+	}
+}
+
+@keyframes fade--in-up {
+
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+
+	} to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fade--in-down {
+	from {
+		opacity: 0;
+		transform: translateY(-20px);
+
+	} to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes scale--up {
+	from {
+		transform: scale(0);
+
+	} to {
+		transform: scale(1);
+	}
+}
+
+@keyframes scale--down {
+	from {
+		transform: scale(1);
+
+	} to {
+		transform: scale(0);
+	}
+}
+
+@keyframes slide--up {
+	from {
+		transform: translateY(20px);
+
+	} to {
+		transform: translateY(0);
+	}
+}
+
+@keyframes slide--down {
+	from {
+		transform: translateY(-20px);
+
+	} to {
+		transform: translateY(0);
+	}
+}
+
+@keyframes slide--left {
+	from {
+		transform: translateX(20px);
+
+	} to {
+		transform: translateX(0);
+	}
+}
+
+@keyframes slide--right {
+	from {
+		transform: translateX(-20px);
+
+	} to {
+		transform: translateX(0);
+	}
+}
+
+@keyframes flip--in {
+	from {
+		opacity: 0;
+		transform: scaleY(0);
+
+	} to {
+		opacity: 1;
+		transform: scaleY(1);
+	}
+}
+
+@keyframes flip--out {
+	from {
+		opacity: 1;
+		transform: scaleY(1);
+
+	} to {
+		opacity: 0;
+		transform: scaleY(0);
+	}
+}
+
+@keyframes rotate--right {
+	from {
+		transform: rotate(0deg);
+
+	} to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes rotate--left {
+	from {
+		transform: rotate(360deg);
+
+	} to {
+		transform: rotate(0deg);
+	}
+}
+
+@keyframes flash {
+	from {
+		opacity: 1;
+
+	} to {
+		opacity: .25;
+	}
+}
+
+@keyframes shake {
+
+	15% {
+		transform: translateX(5px);
+
+	} 30% {
+		transform: translateX(-4px);
+
+	} 45% {
+		transform: translateX(3px);
+
+	} 60% {
+		transform: translateX(-2px);
+
+	} 75% {
+		transform: translateX(1px);
+
+	} 90% {
+		transform: translateX(0);
+
+	} 100% {
+		transform: translateX(0);
+
+	}
+}
