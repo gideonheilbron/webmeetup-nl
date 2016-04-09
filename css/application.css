@@ -16,6 +16,7 @@ Error: File to import not found or unreadable: components/form.
 
 Backtrace:
 scss/application.scss:34
+<<<<<<< HEAD
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.21/lib/sass/tree/import_node.rb:67:in `rescue in import'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.21/lib/sass/tree/import_node.rb:45:in `import'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.21/lib/sass/tree/import_node.rb:28:in `imported_file'
@@ -49,6 +50,41 @@ scss/application.scss:34
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.21/bin/sass:13:in `<top (required)>'
 /usr/local/bin/sass:23:in `load'
 /usr/local/bin/sass:23:in `<main>'
+=======
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/import_node.rb:67:in `rescue in import'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/import_node.rb:45:in `import'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/import_node.rb:28:in `imported_file'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/import_node.rb:37:in `css_import?'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:313:in `visit_import'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `block in with_base'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `with_base'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `visit'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:52:in `map'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:169:in `block in visit_children'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:181:in `with_environment'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:168:in `visit_children'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:188:in `visit_root'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:159:in `visit'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/engine.rb:381:in `_render_with_sourcemap'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/engine.rb:298:in `render_with_sourcemap'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/exec/sass_scss.rb:391:in `run'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/exec/sass_scss.rb:63:in `process_result'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/exec/base.rb:52:in `parse'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/exec/base.rb:19:in `parse!'
+/Users/gideon/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.4.22/bin/sass:13:in `<top (required)>'
+/Users/gideon/.rbenv/versions/2.3.0/bin/sass:23:in `load'
+/Users/gideon/.rbenv/versions/2.3.0/bin/sass:23:in `<main>'
+>>>>>>> 6e903fc89decefeea0e68803d7560dc4dd6e832c
 */
 body:before {
   white-space: pre;

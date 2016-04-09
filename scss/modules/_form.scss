@@ -1,0 +1,181 @@
+//////////////////
+//
+//	File: _forms.scss
+//	Description: Form related styling
+//	TODO: Make this file more compact
+//
+//////////////////
+
+
+////////////////////////
+//	Defaults/resets
+////////////////////////
+
+input[type=button],
+input[type=date],
+input[type=datetime],
+input[type=email],
+input[type=file],
+input[type=hidden],
+input[type=image],
+input[type=month],
+input[type=number],
+input[type=password],
+input[type=range],
+input[type=reset],
+input[type=search],
+input[type=tel],
+input[type=text],
+input[type=time],
+input[type=url],
+input[type=week],
+select,
+textarea {
+  border-color: $border-color;
+  border-style: $border-style;
+  border-width: $border-1;
+  font-size: $font-size;
+  height: auto;
+  outline: none;
+  padding: $padding;
+  width: 100%;
+  transition: border-color 200ms;
+
+  &:focus {
+    border-color: $cl-grey;
+  }
+}
+
+input[required]:not([type=submit]):not([type=color]):not([type=file]),
+input:invalid:not([type=submit]):not([type=color]):not([type=file]),
+input:valid:not([type=submit]):not([type=color]):not([type=file]) {
+  padding-right: 2.5rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+input:invalid:not([type=submit]):not([type=color]):not([type=file]),
+input:valid:not([type=submit]):not([type=color]):not([type=file]) {
+  background-repeat: no-repeat;
+  background-size: 8px;
+  background-position: right 1rem center;
+}
+
+input.textarea[required],
+input.textarea:invalid,
+input.textarea:valid {
+  background-position: right 1rem top 1rem;
+}
+
+input[required]:not([type=submit]):not([type=color]):not([type=file]) { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 8 16 16" enable-background="new 0 8 16 16"><style type="text/css">.st0{fill:#F18260;}</style><path class="st0" d="M7.2 17.4l-5.4 3.8-1.4-2.5 6-2.7-6.1-2.8 1.4-2.4 5.4 3.8-.5-6.6h2.7l-.5 6.6 5.4-3.8 1.4 2.4-6 2.8 6.1 2.8-1.4 2.5-5.4-3.8.5 6.5h-2.8l.6-6.6z"/></svg>'); }
+input:valid:not([type=submit]):not([type=color]):not([type=file]) { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><circle fill="#B4D388" cx="8" cy="8" r="8"/></svg>'); }
+input:focus:invalid:not([type=submit]):not([type=color]):not([type=file]) { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><circle fill="#CF5340" cx="8" cy="8" r="8"/></svg>'); }
+
+input[novalidate],
+input.novalidate,
+input.hide-validate-icon {
+  background-image: none;
+  padding-right: $padding;
+}
+
+.input-wrap,
+fieldset {
+  margin-bottom: $margin * 2;
+}
+
+label {
+  display: inline-block;
+  margin: $margin 0;
+}
+
+fieldset {
+  background-color: $cl-grey;
+  border: $border-1 $border-style $border-color;
+  padding: $padding ($padding * 2);
+}
+
+.radio-group,
+.checkbox-group {
+
+  label {
+    margin-right: 10px;
+  }
+
+  input[type=radio],
+  input[type=checkbox] {
+    margin-right: 5px;
+  }
+}
+
+.radio-wrap,
+.checkbox-wrap {
+  display: inline-block;
+  margin-right: $margin;
+
+  @include sm {
+    display: block;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+
+////////////////////////
+//	Inline input group
+////////////////////////
+
+.input-group {
+  @extend .group;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+////////////////////////
+//	Selects
+////////////////////////
+
+select {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="-469 273 8 11" enable-background="new -469 273 8 11"><path fill="#B4B4B4" d="M-469 277l4-4 4 4zM-461 280l-4 4-4-4z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+
+
+////////////////////////
+//	Color input
+////////////////////////
+
+input[type=color] {
+  background-color: $cl-white;
+  cursor: pointer;
+  outline: none;
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+    padding: 1rem;
+  }
+}
+
+input[type=file] {
+  font-size: .75rem;
+}
+
+////////////////////////
+//  Date picker
+////////////////////////
+
+::-webkit-calendar-picker-indicator,
+::-webkit-calendar-picker-indicator:hover {
+  cursor: pointer;
+  padding: 0 0 0 1rem;
+  color: $cl-primary;
+  background: transparent;
+}
+
+::-webkit-datetime-edit-fields-wrapper { padding: 0; }
+::-webkit-inner-spin-button { display: none; }
