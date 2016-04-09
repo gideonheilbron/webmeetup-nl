@@ -18,7 +18,24 @@
 			defaults = {
 				target: document,
 				propertyName: "value"
-			};
+			},
+			templates = [],
+			months_list = [
+					"JAN",
+					"FEB",
+					"MAR",
+					"APR",
+					"MAY",
+					"JUN",
+					"JUL",
+					"AUG",
+					"SEP",
+					"OCT",
+					"NOV",
+					"DEC"
+				],
+			$main_element = $("body main");
+			console.log($main_element);
 
 		// The actual plugin constructor
 		function Plugin ( element, options ) {
@@ -37,13 +54,35 @@
 		// Avoid Plugin.prototype conflicts
 		$.extend( Plugin.prototype, {
 			init: function() {
-				console.log('bla');
-				requestEvents();
+				this.createTemplate("event", ".event");
+				this.requestEvents();
+			},
+
+			createTemplate: function(template_name, template_selector) {
+				var $template_element = $(template_selector)
+				templates[template_name] = $template_element.clone(true);
+				$template_element.remove();
 			},
 
 			requestEvents: function() {
-				$.getJSON('https://api.meetup.com/2/events?&sign=true&photo-host=public&group_urlname=webmeetup&page=5', function(data) {
-					console.log(data);
+				$.ajax({
+					method: "POST",
+					url: "https://api.meetup.com/2/events?&sign=true&photo-host=public&group_urlname=webmeetup&page=5",
+					dataType: "jsonp"
+				})
+				.done(function(data) {
+					for (var event_index in data.results) {
+						var event = data.results[event_index]
+							,	event_date = new Date(event.time)
+							,	$new_element = $($(templates["event"]).clone());
+
+						$new_element.find(".event_date-day").html(event_date.getDate());
+						$new_element.find(".event_date-month").html(months_list[event_date.getMonth()]);
+						console.log($new_element);
+						$("main").append($new_element);
+						$main_element.append($new_element);
+						console.log(event);
+					}
 				});
 			}
 		} );
