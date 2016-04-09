@@ -1,0 +1,134 @@
+//////////////////
+//
+//	File: _button.scss
+//	Description: Buttons styling
+//
+//////////////////
+
+
+////////////////////////
+//	Defaults/reset
+////////////////////////
+
+button,
+input[type=submit],
+input[type=file] {
+	cursor: pointer;
+	outline: none;
+	white-space: nowrap;
+	-webkit-appearance: none;
+	-webkit-user-select: none;
+
+	color: $cl-white;
+	background-color: $cl-primary;
+	font-size: $font-size;
+	text-align: center;
+	line-height: 1;
+	height: 100%;
+	display: inline-block;
+	border-radius: $border-radius;
+	padding: $padding * 1.5;
+	border: 0;
+	box-shadow: 0 0 0 $border-1 transparent inset;
+	transition-property: color, background-color, transform;
+	transition-duration: 200ms;
+	transition-timing-function: ease-in-out;
+
+	&:active {
+		transform: translate3d(0, 1px, 0);
+	}
+
+	&:hover {
+		color: $cl-white;
+		background-color: darken($cl-primary, 5%);
+	}
+
+	&:disabled,
+	&[disabled] {
+		opacity: .6;
+		transition: none;
+		cursor: progress;
+	}
+}
+
+input[type=reset] {
+	background-color: $cl-grey;
+	border-color: $cl-grey;
+	color: $cl-black;
+	cursor: pointer;
+}
+
+
+////////////////////////
+//	Basic examples
+////////////////////////
+
+.btn,
+.btn--primary {
+	@extend button;
+}
+
+.btn--secondary {
+	@extend .btn;
+	color: $cl-primary;
+	background: $cl-white;
+
+	&:hover {
+		color: $cl-primary;
+		background-color: rgba($cl-white, .9);
+	}
+}
+
+.btn--tertiary {
+	@extend .btn;
+	color: $cl-secondary;
+	background: $cl-quaternary;
+
+	&:hover {
+		color: $cl-white;
+		background-color: lighten($cl-quaternary, 10%);
+	}
+}
+
+
+////////////////////////
+//	Ghost buttons
+////////////////////////
+
+.btn--ghost {
+	@extend .btn;
+	color: $cl-primary;
+	background-color: transparent;
+	box-shadow: 0 0 0 $border-1 $cl-primary inset;
+	transition: background 200ms, color 200ms;
+
+	&:hover {
+		color: $cl-white;
+		background: $cl-primary;
+		box-shadow: none;
+		border-color: transparent;
+	}
+}
+
+.btn--ghost--secondary {
+	@extend .btn--ghost;
+	color: $cl-black;
+	box-shadow: 0 0 0 $border-1 $cl-black inset;
+
+	&:hover {
+		@extend .btn--ghost:hover;
+		background: $cl-black;
+	}
+}
+
+.btn--ghost--tertiary {
+	@extend .btn--ghost;
+	color: $cl-white;
+	box-shadow: 0 0 0 $border-1 $cl-white inset;
+
+	&:hover {
+		@extend .btn--ghost:hover;
+		color: $cl-black;
+		background: $cl-white;
+	}
+}
