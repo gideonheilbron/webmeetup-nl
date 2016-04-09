@@ -86,14 +86,13 @@ module.exports = function(grunt){
     concat: {
       dev: {
         src: [
-          'js/application.js',
-          'js/classes/*.js'
+          'js/source/*.js'
         ],
         dest: 'js/build/application.js'
       },
       assets: {
         src: [
-          'js/assets/*.js'
+          'js/source/assets/*.js'
         ],
         dest: 'js/build/assets.js'
       }
