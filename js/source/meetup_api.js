@@ -55,9 +55,39 @@
 		$.extend( Plugin.prototype, {
 			init: function() {
 				this.createTemplate("event", ".events__item");
-				this.requestApi("https://api.meetup.com/2/events?&sign=true&photo-host=public&group_urlname=webmeetup&page=5", );
-
 				$events_wrapper = $("div.events");
+				console.log(this);
+			},
+
+			getEvents: function() {
+				this.requestApi("https://api.meetup.com/2/events?&sign=true&photo-host=public&group_urlname=webmeetup&page=5", "event", this.callbackEvents);
+			},
+
+			getRSVPlist: function() {
+				this.requestApi("https://api.meetup.com/2/events?&sign=true&photo-host=public&group_urlname=webmeetup&page=5", "event");
+			},
+
+			callbackEvents: function(data) {
+				for (var item_index in data.results) {
+					var item = data.results[item_index]
+						,	event_date = new Date(item.time)
+						,	$new_element = $($(templates[request_template_type]).clone());
+
+					$new_element.find(".date__day").html(event_date.getDate());
+					$new_element.find(".date__month").html(months_list[event_date.getMonth()]);
+					$new_element.find(".title--events").html(item.name);
+					$new_element.find(".description--events").html(item.description);
+
+					var $rsvp_list_person_element_original = $new_element.find(".rsvp-list__person");
+
+					var $rsvp_list_person_element = $rsvp_list_person_element_original.clone();
+					$rsvp_list_person_element_original.remove();
+
+					//for (var person_index in data.results.
+
+					console.log(data);
+					$events_wrapper.append($new_element);
+				}
 			},
 
 			createTemplate: function(template_name, template_selector) {
@@ -66,24 +96,13 @@
 				$template_element.remove();
 			},
 
-			requestApi: function(url, request_type) {
+			requestApi: function(url, request_template_type, callback_function) {
 				$.ajax({
 					method: "POST",
 					url: url,
 					dataType: "jsonp"
 				})
-				.done(function(data) {
-					for (var item_index in data.results) {
-						var item = data.results[item_index]
-							,	event_date = new Date(event.time)
-							,	$new_element = $($(templates[request_type]).clone());
-
-						$new_element.find(".date__day").html(event_date.getDate());
-						$new_element.find(".date__month").html(months_list[event_date.getMonth()]);
-						console.log($new_element);
-						$events_wrapper.append($new_element);
-					}
-				});
+				.done(callback_function(data));
 			},
 
 
