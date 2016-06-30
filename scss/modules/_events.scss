@@ -9,16 +9,35 @@
 
 /*----------  Events menu  ----------*/
 
+.events-menu-holder {
+	display: flex;
+	-webkit-justify-content: center; /* Safari */
+	justify-content:         center;
+}
 
 .events-menu {
-	margin: 5rem auto;
+	margin: 5rem 0;
 	display: inline-block;
 	list-style-type: none;
+
 }
 
 .events-menu__item {
 	display: inline-block;
-	margin: 0 3rem;
+	margin: 0 2.5rem;
+	font-weight: bold;
+
+
+	a {
+		font-size: 2rem;
+		color: #d0d0d0;
+	}
+
+	&--active a {
+		color: $cl-primary;
+		border-bottom: 2px solid $cl-primary;
+		padding-bottom: 2px;
+	}
 }
 
 
@@ -30,7 +49,7 @@
 
 
 .events {
-
+	padding: 0 2rem;
 }
 
 /*----------  Each event is an item  ----------*/
@@ -38,28 +57,38 @@
 .events__item {
 	margin: 0 auto 4rem auto;
 	border-radius: 0.25rem;
+	max-height: 8rem;
 	overflow: hidden;
-	box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+	box-shadow: 0 3px 8px 1px rgba(0,0,0,0.1);
+	background: white;
 
-  text-align: left;
-  max-width: 80rem;
+	text-align: left;
+	max-width: 80rem;
 
-  &:last-child {
-		margin-bottom: 0;
-  }
+	transition: max-height 0.2s ease;
+
+	&--active {
+		max-height: 40rem;
+	}
 }
 
-.events__titlebar {
+.titlebar--events {
+	height: 8rem;
 	background-color: $cl-primary;
-	padding: 2rem 4rem;
+	padding: 1.5rem 4rem;
 	color: white;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
 }
 
 .cta-holder--events {
-	height: 6rem;
-	float: right;
-	line-height: 6rem;
+	height: 5rem;
+	line-height: 5rem;
 	vertical-align: top;
+	align-self: flex-end;
+	margin-left: auto;
 }
 
 .button--cta {
@@ -67,17 +96,62 @@
 	line-height: 3rem;
 	color: $cl-primary;
 	padding: 0.5rem 3rem;
-	box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+	box-shadow: 0 3px 8px 1px rgba(0, 0, 0, 0.1);
 	background-color: white;
 	border-radius: 4rem;
+	cursor: pointer;
+	font-weight: bold;
 }
 
 .rsvp-list-holder {
-	padding: 2rem 4rem;
+	padding: 0 4rem;
+	margin-bottom: 2rem;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	-webkit-justify-content: flex-start;
+	justify-content: flex-start;
+	-webkit-justify-content: space-between; /* Safari */
+	justify-content:         space-between;
 }
 
 .rsvp-list-holder p {
+	vertical-align: top;
 	display: inline-block;
+	margin: 0 1rem 0 0;
+	line-height: 5rem;
+	font-weight: bold;
+	color: $cl-primary;
+}
+
+.rsvp-list {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	-webkit-justify-content: flex-end;
+	justify-content: flex-end;
+}
+
+.rsvp-list__member {
+	border-radius: 50%;
+	display: inline-block;
+	margin-right: 1rem;
+	width: 5rem;
+	height: 5rem;
+	border: 0.25rem solid white;
+	box-shadow: 0 3px 8px 1px rgba(0,0,0,0.1);
+	background-size: cover;
+	vertical-align: top;
+	text-align: center;
+	font-weight: bold;
+	color: $cl-primary;
+	line-height: 4.5rem;
+
+	&:last-child {
+		margin-right: 0;
+	}
 }
 
 .description--events {
@@ -95,10 +169,11 @@
 		width: 100%;
 		height: 6rem;
 		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+50&0+0,1+50 */
-background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+		background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+		transition: opacity 0.2s ease;
 	}
 }
 
@@ -113,29 +188,29 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 	display: inline-block;
 	text-align: center;
 	color: $cl-primary;
-	padding-top: 1rem;
+	padding-top: 0.5rem;
 	line-height: 1;
 	font-weight: bold;
-	width: 6rem;
-	height: 6rem;
+	width: 5rem;
+	height: 5rem;
 	background-color: white;
-	border-radius: 50%;
+	border-radius: 0.25rem;
 	margin-right: 2rem;
 }
 
 .date__day {
 	text-align: center;
-	font-size: 2rem;
-	display: inline-block;
+	font-size: 2.4rem;
 }
 
 .title--events {
 	display: inline-block;
 	vertical-align: top;
-	line-height: 6rem;
+	line-height: 5rem;
 	font-size: 2rem;
 }
 
 .date__month {
+	font-size: 1.4rem;
 	text-align: center;
 }

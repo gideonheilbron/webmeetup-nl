@@ -54,39 +54,79 @@
 		// Avoid Plugin.prototype conflicts
 		$.extend( Plugin.prototype, {
 			init: function() {
-				this.createTemplate("event", ".events__item");
 				$events_wrapper = $("div.events");
-				console.log(this);
+				this.createTemplate("rsvp-list__member", ".rsvp-list__member");
+				this.createTemplate("event", ".events__item");
+				this.getEvents();
 			},
 
 			getEvents: function() {
-				this.requestApi("https://api.meetup.com/2/events?&sign=true&photo-host=public&group_urlname=webmeetup&page=5", "event", this.callbackEvents);
+				this.requestApi("https://api.meetup.com/webmeetup/events?page=5", this.callbackEvents.bind(this));
 			},
 
-			getRSVPlist: function() {
-				this.requestApi("https://api.meetup.com/2/events?&sign=true&photo-host=public&group_urlname=webmeetup&page=5", "event");
+			getRSVPlist: function(event_id) {
+				this.requestApi("https://api.meetup.com/webmeetup/events/"+event_id+"/rsvps", this.callBackRSVPlist.bind(this));
 			},
 
 			callbackEvents: function(data) {
-				for (var item_index in data.results) {
-					var item = data.results[item_index]
+				for (var item_index in data.data) {
+					var item = data.data[item_index]
 						,	event_date = new Date(item.time)
-						,	$new_element = $($(templates[request_template_type]).clone());
+						,	$new_element = $($(templates["event"]).clone());
 
+					if (item_index == 0) {
+						$new_element.addClass("events__item--active");
+					}
+
+					$new_element.attr("data-event-id", item.id);
 					$new_element.find(".date__day").html(event_date.getDate());
 					$new_element.find(".date__month").html(months_list[event_date.getMonth()]);
 					$new_element.find(".title--events").html(item.name);
 					$new_element.find(".description--events").html(item.description);
+					$new_element.find(".button--cta").attr("href", item.link);
 
-					var $rsvp_list_person_element_original = $new_element.find(".rsvp-list__person");
+					$new_element.find(".titlebar--events")[0].addEventListener("click", function(event) {
+						if (!$(event.target).hasClass("button--cta")) {
+							$(this).parent().toggleClass("events__item--active");
+						}
+					});
 
-					var $rsvp_list_person_element = $rsvp_list_person_element_original.clone();
-					$rsvp_list_person_element_original.remove();
+					// Get RSVP list
+					this.getRSVPlist(item.id);
 
-					//for (var person_index in data.results.
-
-					console.log(data);
 					$events_wrapper.append($new_element);
+				}
+			},
+
+			callBackRSVPlist: function(data) {
+				var maximum_members = 5
+				  , rsvp_members = 0
+				  , rsvp_yes_members = 0;
+
+				for (var item_index in data.data) {
+					var item = data.data[item_index];
+					rsvp_members++;
+
+					if (item.response === "yes") {
+						rsvp_yes_members++;
+						if (rsvp_yes_members < maximum_members+1) {
+							var	member_photo = item.member.photo.thumb_link
+								,	$new_element = $($(templates["rsvp-list__member"]).clone());
+
+							$new_element.css("background-image", "url('"+member_photo+"')");
+							$new_element.attr("title", item.member.name);
+
+							var $rsvp_list_holder = $(".events__item[data-event-id='"+item.event.id+"']").find(".rsvp-list");
+
+							$rsvp_list_holder.append($new_element);
+						}
+					}
+				}
+
+				if (rsvp_yes_members > maximum_members) {
+					$new_element = $($(templates["rsvp-list__member"]).clone());
+					$new_element.html(parseInt(rsvp_yes_members-maximum_members)+"+");
+					$rsvp_list_holder.append($new_element);
 				}
 			},
 
@@ -96,13 +136,13 @@
 				$template_element.remove();
 			},
 
-			requestApi: function(url, request_template_type, callback_function) {
+			requestApi: function(url, callback_function) {
 				$.ajax({
 					method: "POST",
 					url: url,
 					dataType: "jsonp"
 				})
-				.done(callback_function(data));
+				.done(function(data) {callback_function(data)});
 			},
 
 

@@ -11,6 +11,8 @@
 	<meta name="viewport" content="initial-scale=-39, user-scalable=no">
 	<link rel="stylesheet" href="css/application.css">
 
+	<link href='https://fonts.googleapis.com/css?family=Lato:700,400,300' rel='stylesheet' type='text/css'>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 	<script src="js/build/assets.js"></script>
 	<script src="js/build/application.js"></script>
@@ -21,24 +23,24 @@
 	<main>
 		<div class="events-menu-holder">
 			<ul class="events-menu">
-				<li class="events-menu__item"><a href="#upcoming-meetups">Upcoming meetups</a></li>
-				<li class="events-menu__item"><a href="#previous-meetups">Previous meetups</a></li>
+				<li class="events-menu__item events-menu__item--active"><a href="#upcoming-meetups">Upcoming meetups</a></li><!--
+			--><li class="events-menu__item"><a href="#previous-meetups">Previous meetups</a></li>
 			</ul>
 		</div>
 
 		<div class="events">
 			<div class="events__item">
-				<div class="events__titlebar">
+				<div class="titlebar titlebar--events">
 					<div class="date date--events">
 						<div class="date__day">
 						</div>
 						<div class="date__month">
 						</div>
-					</div>
-					<div class="title title--events">
-					</div>
-					<div class="cta-holder cta-holder--events">
-						<div class="button button--cta">Join meetup</div>
+					</div><!--
+					--><div class="title title--events">
+					</div><!--
+					--><div class="cta-holder cta-holder--events">
+						<a target="_blank" class="button button--cta">Join meetup</a>
 					</div>
 				</div>
 				<div class="description description--events">
@@ -47,7 +49,7 @@
 				<div class="rsvp-list-holder">
 					<p>Attending:</p>
 					<div class="rsvp-list">
-						<div class="rsvp-list__person"></div>
+						<div class="rsvp-list__member"></div>
 					</div>
 				</div>
 			</div>
