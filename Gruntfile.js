@@ -71,11 +71,11 @@ module.exports = function(grunt){
     watch: {
       js: {
         files: ['js/**/*.js'],
-        tasks: ['concat', 'notify:watch']
+        tasks: ['concat']
       },
       sass: {
         files: ['scss/**/*.scss'],
-        tasks: ['sass', 'notify:watch'],
+        tasks: ['sass'],
         options: {
           livereload: true,
           sourcemap: true
@@ -109,12 +109,12 @@ module.exports = function(grunt){
     uglify: {
       build: {
         files: {
-          'js/build/application.js': ['js/application.js']
+          'js/build/application.js': ['js/build/application.js']
         }
       },
       assets: {
         files: {
-          'js/build/assets.js': ['js/assets.js']
+          'js/build/assets.js': ['js/build/assets.js']
         }
       }
     }
@@ -128,10 +128,10 @@ module.exports = function(grunt){
     ['newer:sass', 'concat', 'newer:postcss']
   );
   grunt.registerTask('assets',
-    ['bower_concat', 'concat:assets', 'uglify:assets','notify:assets']
+    ['bower_concat', 'concat:assets', 'uglify:assets', 'notify:assets']
   );
   grunt.registerTask('production',
-    ['build', 'cssmin', 'bower_concat', 'uglify:assets', 'uglify']
+    ['build', 'cssmin', 'bower_concat', 'uglify']
   );
 
 };
