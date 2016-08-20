@@ -131,8 +131,8 @@ $(document).ready(function() {
 						$(this).toggleClass("expanded");
 						$(this).prev().toggleClass("expanded");
 						if ($(this).hasClass("expanded")) {
-							$(this).prev().css("max-height", $(this).parent().attr("data-description-height")+"px");
-							$(this).parent().css("max-height", $new_element.attr("data-height")+"px");
+							// $(this).prev().css("max-height", $(this).parent().attr("data-description-height")+"px");
+							// $(this).parent().css("max-height", $new_element.attr("data-height")+"px");
 						} else {
 							$(this).prev().removeAttr("style");
 							$(this).parent().removeAttr("style");
@@ -146,8 +146,8 @@ $(document).ready(function() {
 
 		function callBackRSVPlist(data) {
 			var maximum_members = 5
-			  , rsvp_members = 0
-			  , rsvp_yes_members = 0;
+					, rsvp_members = 0
+					, rsvp_yes_members = 0;
 
 			for (var item_index in data.data) {
 				var item = data.data[item_index];

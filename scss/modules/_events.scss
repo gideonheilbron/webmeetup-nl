@@ -84,10 +84,10 @@
 .events__container {
 	overflow: hidden;
 	max-height: 0;
-	transition: max-height 0.3s ease;
+	transition: max-height 600ms ease;
 
 	.events__item--active & {
-		max-height: 45rem;
+		max-height: 450rem;
 	}
 }
 
@@ -96,7 +96,7 @@
 	cursor: pointer;
 	height: 8rem;
 	background-color: $cl-primary;
-	padding: 1.5rem 4rem 1.5rem 6rem;
+	padding: 1.5rem 2rem 1.5rem 6rem;
 	color: white;
 	display: -webkit-flex;
 	display: flex;
@@ -115,12 +115,12 @@
 .button--cta {
 	display: inline-block;
 	line-height: 3rem;
-	color: $cl-white;
 	padding: 0.5rem 3rem;
 	// background-color: white;
 	border: 2px solid $cl-white;
 	border-radius: 4rem;
 	cursor: pointer;
+	color: $cl-white;
 	font-weight: bold;
 	transition-property: color, background, box-shadow;
 	transition-duration: 300ms;
@@ -186,11 +186,16 @@
 
 .description--events {
 	padding: 2rem 4rem;
+	overflow: hidden;
+	max-height: 20rem;
 	box-sizing: initial;
 	position: relative;
 	overflow: hidden;
+	transition: max-height 600ms;
 
 	&.expanded {
+		max-height: 80rem;
+
 		&:after {
 			opacity: 0;
 		}
