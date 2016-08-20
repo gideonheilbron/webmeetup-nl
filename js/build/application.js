@@ -135,8 +135,8 @@ $(document).ready(function() {
 						$(this).toggleClass("expanded");
 						$(this).prev().toggleClass("expanded");
 						if ($(this).hasClass("expanded")) {
-							// $(this).prev().css("max-height", $(this).parent().attr("data-description-height")+"px");
-							// $(this).parent().css("max-height", $new_element.attr("data-height")+"px");
+							$(this).prev().css("max-height", $(this).parent().attr("data-description-height")+"px");
+							$(this).parent().css("max-height", $new_element.attr("data-height")+"px");
 						} else {
 							$(this).prev().removeAttr("style");
 							$(this).parent().removeAttr("style");

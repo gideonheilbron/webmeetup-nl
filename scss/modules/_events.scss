@@ -92,16 +92,18 @@
 	margin: 0 auto 4rem auto;
 	border-radius: 0.25rem;
 	transform: scale(.95);
-	max-height: 8rem;
-	overflow: hidden;
 	box-shadow: 0 3px 8px 1px rgba(0,0,0,0.1);
 	background: white;
 	text-align: left;
 	max-width: 80rem;
-	transition: transform 0.3s ease;
+	transition: transform 300ms;
 
 	p:last-child {
 		margin-bottom: 0;
+	}
+
+	&--active {
+		transform: scale(1);
 	}
 }
 
@@ -111,8 +113,7 @@
 	transition: max-height 600ms ease;
 
 	.events__item--active & {
-		max-height: 200rem;
-		transform: scale(1);
+		max-height: 45rem;
 	}
 }
 
@@ -212,7 +213,7 @@
 	transition: max-height 600ms;
 
 	&.expanded {
-		max-height: 80rem;
+		max-height: 45rem;
 
 		&:after {
 			opacity: 0;
