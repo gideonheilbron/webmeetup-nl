@@ -6,9 +6,6 @@
 //////////////////
 
 
-
-/*----------  Events menu  ----------*/
-
 .events-menu-holder {
 	display: flex;
 	justify-content: center;
@@ -239,73 +236,5 @@
 		margin: 0rem 3rem 2rem 3rem;
 		border: 0;
 		border-bottom: 1px solid $cl-border;
-		display: flex;
-		justify-content: center;
 	}
-
-	&--expand {
-		position: relative;
-
-		&.expanded {
-
-			&:after {
-				transform: scale(0);
-			}
-		}
-
-		&:after {
-			content: 'Read more';
-			display: block;
-			position: absolute;
-			left: calc(50% - 47px);
-			top: -15px;
-			padding: .3rem 1.5rem;
-			cursor: pointer;
-			color: $cl-dark-grey;
-			font-weight: bold;
-			font-size: 1.25rem;
-			line-height: 2.5rem;
-			border-radius: 4rem;
-			background-color: $cl-light-grey;
-			transform: scale(1);
-			transition-property: transform;
-			transition-duration: 300ms;
-		}
-	}
-}
-
-.date--events {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	text-align: center;
-	position: absolute;
-	top: -0.5rem;
-	left: -4.5rem;
-	color: $cl-primary;
-	line-height: 1;
-	font-weight: bold;
-	width: 9rem;
-	height: 9rem;
-	background-color: $cl-white;
-	border-radius: 200px;
-	box-shadow: 0 0 0 3px $cl-primary;
-}
-
-.date__day {
-	text-align: center;
-	font-size: 2.4rem;
-}
-
-.title--events {
-	display: inline-block;
-	vertical-align: top;
-	line-height: 5rem;
-	font-size: 2rem;
-}
-
-.date__month {
-	font-size: 1.4rem;
-	text-align: center;
 }

@@ -1,0 +1,26 @@
+//////////////////
+//
+//	File: _events.scss
+//	Description: Events module for upcoming meetups
+//
+//////////////////
+
+
+// Usps container
+
+.usps {
+	width: 100%;
+	background-color: $cl-light-grey;
+	padding: 2rem 0;
+
+	.container {
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
+.usp {
+	h2 {
+		font-family: $serif;
+	}
+}
