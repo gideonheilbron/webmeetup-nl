@@ -132,3 +132,20 @@ input[type=reset] {
 		background: $cl-white;
 	}
 }
+
+
+
+.btn--pill {
+	@extend .btn--ghost;
+	padding: 20px 30px;
+	border-radius: 100px;
+	color: $cl-white;
+	font-weight: bold;
+	box-shadow: 0 0 0 $border-1 $cl-white inset;
+
+	&:hover {
+		@extend .btn--ghost:hover;
+		color: $cl-primary;
+		background: $cl-white;
+	}
+}
