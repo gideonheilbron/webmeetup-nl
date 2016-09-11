@@ -5,10 +5,14 @@
 //
 //////////////////
 
+.events {
+	background: $cl-white;
+}
 
 .events-menu-holder {
 	display: flex;
 	justify-content: center;
+	background: $cl-white;
 }
 
 .events-menu {
