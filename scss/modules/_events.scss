@@ -110,10 +110,10 @@
 .events__container {
 	overflow: hidden;
 	max-height: 0;
-	transition: max-height 600ms ease;
+	transition: max-height 300ms ease;
 
 	.events__item--active & {
-		max-height: 45rem;
+		max-height: 34rem;
 	}
 }
 
@@ -206,11 +206,11 @@
 .description--events {
 	padding: 2rem 4rem;
 	overflow: hidden;
-	max-height: 20rem;
+	max-height: 0rem;
 	box-sizing: initial;
 	position: relative;
 	overflow: hidden;
-	transition: max-height 600ms;
+	transition: max-height 300ms;
 
 	&.expanded {
 		max-height: 45rem;
@@ -230,6 +230,10 @@
 		height: 8rem;
 		background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, white 90%);
 		transition: opacity 0.2s ease;
+	}
+
+	.events__item--active & {
+		max-height: 20rem;
 	}
 }
 

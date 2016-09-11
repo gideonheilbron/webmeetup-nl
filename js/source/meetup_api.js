@@ -94,6 +94,7 @@
 						$(this).parent().find(".description--events").removeClass("expanded");
 						$(this).parent().find(".hr--events").removeClass("expanded");
 						$(this).parent().toggleClass("events__item--active");
+						$(this).parent().find(".events__container").removeAttr("style");
 					}
 				});
 
@@ -112,12 +113,15 @@
 					$new_element.find(".hr--events")[0].addEventListener("click", function(event) {
 						$(this).toggleClass("expanded");
 						$(this).prev().toggleClass("expanded");
+
 						if ($(this).hasClass("expanded")) {
-							$(this).prev().css("max-height", $(this).parent().attr("data-description-height")+"px");
-							$(this).parent().css("max-height", $new_element.attr("data-height")+"px");
+							$(this).prev().css("max-height", $(this).parent().parent().attr("data-description-height")+"px");
+							$(this).parent().css("max-height", $(this).parent().parent().attr("data-height")+"px");
+							console.log($(this).parent());
 						} else {
+							console.log(this);
 							$(this).prev().removeAttr("style");
-							$(this).parent().removeAttr("style");
+							$(this).parent().parent().removeAttr("style");
 						}
 					});
 				}
