@@ -11,16 +11,28 @@
 .usps {
 	width: 100%;
 	background-color: $cl-light-grey;
-	padding: 2rem 0;
 
 	.container {
 		display: flex;
 		justify-content: space-between;
+		padding: 3rem 0;
+
+		@include sm('<') {
+			display: block;
+		}
 	}
 }
 
 .usp {
+	margin: 3rem 0;
+	padding: 0 2rem;
+
+	@include md('>') {
+		width: 30%;
+	}
+
 	h2 {
 		font-family: $serif;
+		font-size: 40px;
 	}
 }
