@@ -27,7 +27,7 @@ $line-height: 1.6 !default;
 }
 
 %font-serif {
-	font-family: 'Playfair Display', serif;
+	font-family: $serif;
 }
 
 
@@ -262,32 +262,32 @@ code {
 }
 
 .section-header {
-  color: $cl-primary;
-  border-bottom: 3px solid $cl-tertiary;
-  padding-bottom: $padding;
-  margin-bottom: $margin * 4;
+		color: $cl-primary;
+		border-bottom: 3px solid $cl-tertiary;
+		padding-bottom: $padding;
+		margin-bottom: $margin * 4;
 
-  @include sm() {
-    overflow: hidden;
-  }
+		@include sm() {
+				overflow: hidden;
+		}
 
-  .subhead {
-    float: right;
-    line-height: 4rem;
+		.subhead {
+				float: right;
+				line-height: 4rem;
 
-    @include sm() {
-      display: block;
-      float: none;
-      width: 100%;
-    }
-  }
+				@include sm() {
+						display: block;
+						float: none;
+						width: 100%;
+				}
+		}
 }
 
 .section-header--secondary {
-  @extend .section-header;
-  border-bottom-color: $cl-secondary;
+		@extend .section-header;
+		border-bottom-color: $cl-secondary;
 }
 
 :target .section-header {
-  text-decoration: underline;
+		text-decoration: underline;
 }
