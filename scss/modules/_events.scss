@@ -11,19 +11,16 @@
 
 .events-menu-holder {
 	display: flex;
-	-webkit-justify-content: center; /* Safari */
-	justify-content:         center;
+	justify-content: center;
 }
 
 .events-menu {
+	display: flex;
 	margin: 5rem 0;
-	display: inline-block;
 	list-style-type: none;
-
 }
 
 .events-menu__item {
-	display: inline-block;
 	margin: 0 2.5rem;
 	font-weight: bold;
 
