@@ -2,6 +2,14 @@ var meetupApi;
 
 $(document).ready(function() {
 
+	$('.js_parallax').parallax({
+		imageSrc: 'images/banner.jpg',
+		naturalWidth: 2896,
+		naturalHeight: 1944
+	});
+
+	$(window).trigger('resize').trigger('scroll');
+
 	meetupApi = $.meetupApi();
 
 	meetupApi.getUpcomingEvents();
