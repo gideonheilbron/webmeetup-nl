@@ -1,0 +1,35 @@
+.date--events {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+	position: absolute;
+	top: -0.5rem;
+	left: -4.5rem;
+	color: $cl-primary;
+	line-height: 1;
+	font-weight: bold;
+	width: 9rem;
+	height: 9rem;
+	background-color: $cl-white;
+	border-radius: 200px;
+	box-shadow: 0 0 0 3px $cl-primary;
+}
+
+.date__day {
+	text-align: center;
+	font-size: 2.4rem;
+}
+
+.title--events {
+	display: inline-block;
+	vertical-align: top;
+	line-height: 5rem;
+	font-size: 2rem;
+}
+
+.date__month {
+	font-size: 1.4rem;
+	text-align: center;
+}

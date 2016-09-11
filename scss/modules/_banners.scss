@@ -1,4 +1,6 @@
 .banner {
+	display: flex;
+	align-items: stretch;
 	width: 100%;
 	height: 100vh;
 	max-height: 600px;
@@ -6,4 +8,22 @@
 	text-align: center;
 	color: $cl-white;
 	background-color: $cl-primary;
+
+	.container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+.banner__logo {
+	margin-bottom: 30px;
+}
+
+.banner__text {
+	font-size: 20px;
+}
+
+.banner__button {
+	margin-top: 70px;
 }
