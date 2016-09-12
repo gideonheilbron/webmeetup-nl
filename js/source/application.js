@@ -26,4 +26,8 @@ $(document).ready(function() {
 		$(this).parent().addClass("events-menu__item--active");
 	});
 
+	$(".events-more__button").click(function() {
+		meetupApi.getMoreEvents();
+	});
+
 });

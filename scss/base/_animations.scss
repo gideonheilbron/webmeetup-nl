@@ -58,6 +58,15 @@
 	}
 }
 
+@keyframes scale--up2 {
+	from {
+		transform: scale(.8);
+
+	} to {
+		transform: scale(1);
+	}
+}
+
 @keyframes scale--down {
 	from {
 		transform: scale(1);

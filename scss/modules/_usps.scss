@@ -46,8 +46,19 @@
 		width: 30%;
 	}
 
+	p {
+		@include sm('<') {
+			text-align: center;
+		}
+	}
+
 	h2 {
 		font-family: $serif;
 		font-size: 40px;
+		text-shadow: 0 0 10px rgba($cl-white, 1);
+
+		@include sm('<') {
+			text-align: center;
+		}
 	}
 }

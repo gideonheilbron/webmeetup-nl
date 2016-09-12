@@ -36,11 +36,17 @@
 		function init() {
 			$events_wrapper = $("div.events");
 			createTemplate("rsvp-list__member", ".rsvp-list__member");
-			createTemplate("event", ".events__item");
+			createTemplate("event", ".event");
 
 			return {
 				"getUpcomingEvents": getUpcomingEvents,
-				"getPastEvents": getPastEvents
+				"getPastEvents": getPastEvents,
+				"getMoreEvents": getMoreEvents,
+				"settings": {
+					offset: 0,
+					status: "upcoming",
+					scroll: "next_upcoming"
+				}
 			}
 		}
 
@@ -51,14 +57,30 @@
 
 		function getUpcomingEvents() {
 			$events_wrapper.html("");
-			this.order = "asc";
-			requestApi("https://api.meetup.com/webmeetup/events?page=5&status=upcoming", callbackEvents.bind(this));
+			this.settings.offset = 0;
+			this.settings.add_events = false;
+			this.settings.status = "upcoming";
+			this.settings.scroll = "next_upcoming";
+
+			console.log("https://api.meetup.com/webmeetup/events?page=1&status="+this.settings.status+"&offset="+this.settings.offset);
+			requestApi("https://api.meetup.com/webmeetup/events?&page=5&status="+this.settings.status+"&offset="+this.settings.offset, callbackEvents.bind(this));
 		}
 
 		function getPastEvents() {
 			$events_wrapper.html("");
-			this.order = "desc";
-			requestApi("https://api.meetup.com/webmeetup/events?page=5&status=past", callbackEvents.bind(this));
+			this.settings.offset = 0;
+			this.settings.add_events = false;
+			this.settings.status = "past";
+			console.log("https://api.meetup.com/webmeetup/events?page=5&status="+this.settings.status+"&offset="+this.settings.offset);
+			requestApi("https://api.meetup.com/webmeetup/events?&page=5&status="+this.settings.status+"&offset="+this.settings.offset, callbackEvents.bind(this));
+		}
+
+		function getMoreEvents() {
+			this.settings.add_events = true;
+			this.settings.offset += 5;
+
+			console.log("https://api.meetup.com/webmeetup/events?page=5&status="+this.settings.status+"&offset="+this.settings.offset);
+			requestApi("https://api.meetup.com/webmeetup/events?page=5&status="+this.settings.status+"&offset="+this.settings.offset, callbackEvents.bind(this));
 		}
 
 		function getRSVPlist(event_id) {
@@ -66,6 +88,9 @@
 		}
 
 		function callbackEvents(data) {
+			if (!this.settings.add_events) {
+				$events_wrapper.html("");
+			}
 
 			if (this.order == "desc") {
 				data.data.reverse();
@@ -76,11 +101,12 @@
 					,	event_date = new Date(item.time)
 					,	$new_element = $($(templates["event"]).clone());
 
-				if (item_index == 0) {
-					$new_element.addClass("events__item--active");
+				if (item_index == 0 && !this.settings.add_events) {
+					$new_element.addClass("event--active");
+					$new_element.find(".events__item").addClass("events__item--active");
 				}
 
-				$new_element.attr("data-event-id", item.id);
+				$new_element.find(".events__item").attr("data-event-id", item.id);
 				$new_element.find(".date__day").html(event_date.getDate());
 				$new_element.find(".date__month").html(months_list[event_date.getMonth()]);
 				$new_element.find(".title--events").html(item.name);
@@ -94,6 +120,7 @@
 						$(this).parent().find(".description--events").removeClass("expanded");
 						$(this).parent().find(".hr--events").removeClass("expanded");
 						$(this).parent().toggleClass("events__item--active");
+						$(this).parent().parent().toggleClass("event--active");
 						$(this).parent().find(".events__container").removeAttr("style");
 					}
 				});
@@ -103,12 +130,12 @@
 
 				$events_wrapper.append($new_element);
 
-				var real_height = $new_element.find(".description--events").prop('scrollHeight');
+				var real_height = $new_element.find(".description--events").prop('scrollHeight')+25;
 				var height = $new_element.find(".description--events").height();
 
 				if (real_height > height) {
-					$new_element.attr("data-height", $new_element.prop('scrollHeight')+real_height);
-					$new_element.attr("data-description-height", real_height);
+					$new_element.find(".events__item").attr("data-height", $new_element.prop('scrollHeight')+real_height);
+					$new_element.find(".events__item").attr("data-description-height", real_height);
 					$new_element.find(".hr--events").addClass("hr--expand");
 					$new_element.find(".hr--events")[0].addEventListener("click", function(event) {
 						$(this).toggleClass("expanded");
@@ -117,9 +144,7 @@
 						if ($(this).hasClass("expanded")) {
 							$(this).prev().css("max-height", $(this).parent().parent().attr("data-description-height")+"px");
 							$(this).parent().css("max-height", $(this).parent().parent().attr("data-height")+"px");
-							console.log($(this).parent());
 						} else {
-							console.log(this);
 							$(this).prev().removeAttr("style");
 							$(this).parent().parent().removeAttr("style");
 						}
@@ -142,10 +167,20 @@
 				if (item.response === "yes") {
 					rsvp_yes_members++;
 					if (rsvp_yes_members < maximum_members+1) {
-						var	member_photo = item.member.photo.thumb_link
-							,	$new_element = $($(templates["rsvp-list__member"]).clone());
+						var	member_photo = false;
 
-						$new_element.css("background-image", "url('"+member_photo+"')");
+						if (item.member.photo) {
+							member_photo = item.member.photo.thumb_link;
+						}
+
+						var	$new_element = $($(templates["rsvp-list__member"]).clone());
+
+						if (member_photo) {
+							$new_element.css("background-image", "url('"+member_photo+"')");
+						} else {
+							$new_element.addClass("rsvp-list__member--nophoto");
+						}
+
 						$new_element.attr("title", item.member.name);
 
 						var $rsvp_list_holder = $(".events__item[data-event-id='"+item.event.id+"']").find(".rsvp-list");
@@ -171,7 +206,7 @@
 		function requestApi(url, callback_function) {
 			$events_wrapper.addClass("loading");
 			$.ajax({
-				method: "POST",
+				method: "GET",
 				url: url,
 				dataType: "jsonp"
 			})

@@ -5,7 +5,7 @@
 	flex-direction: column;
 	text-align: center;
 	position: absolute;
-	top: -0.5rem;
+	top: -.5rem;
 	left: -4.5rem;
 	color: $cl-primary;
 	line-height: 1;
@@ -15,6 +15,13 @@
 	background-color: $cl-white;
 	border-radius: 200px;
 	box-shadow: 0 0 0 3px $cl-primary;
+
+	@include md('<') {
+		top: 1rem;
+		left: 1rem;
+		width: 6rem;
+		height: 6rem;
+	}
 }
 
 .date__day {
@@ -27,6 +34,9 @@
 	vertical-align: top;
 	line-height: 5rem;
 	font-size: 2rem;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 .date__month {
