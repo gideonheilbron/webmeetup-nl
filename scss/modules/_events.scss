@@ -7,7 +7,7 @@
 
 .events {
 	background: $cl-white;
-	padding: 0 2rem 2rem;
+	padding: 0 2rem 4rem;
 
 	&:after {
 		position: relative;
@@ -390,6 +390,7 @@
 
 .events-more {
 	text-align: center;
+	padding-bottom: 4rem;
 	background-color: $cl-white;
 
 	.events-more__button {

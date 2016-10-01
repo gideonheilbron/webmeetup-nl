@@ -11,7 +11,8 @@
 .usps {
 	position: relative;
 	width: 100%;
-	background-color: $cl-primary;
+	background-color: $cl-white;
+	border-top: 1px solid #f1f1f1;
 
 	.container {
 		z-index: 200;
@@ -27,12 +28,24 @@
 }
 
 .usp {
-	margin: 3rem 0;
+	margin: 6rem 0;
 	padding: 0 2rem;
-	color: $cl-white;
+	color: #4c4c4c;
 
 	@include md('>') {
 		width: 30%;
+	}
+
+	svg {
+		display: block;
+		width: 50px;
+		height: auto;
+		margin: 0 auto 20px;
+
+		g,
+		path {
+			fill: $cl-primary;
+		}
 	}
 
 	p {
