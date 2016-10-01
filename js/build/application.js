@@ -84,11 +84,7 @@ $(document).ready(function() {
 				"getUpcomingEvents": getUpcomingEvents,
 				"getPastEvents": getPastEvents,
 				"getMoreEvents": getMoreEvents,
-				"settings": {
-					offset: 0,
-					status: "upcoming",
-					scroll: "next_upcoming"
-				}
+				"settings": {}
 			}
 		}
 
@@ -141,20 +137,24 @@ $(document).ready(function() {
 				$events_wrapper.html("");
 			}
 
-			if (this.settings.order == "desc") {
-				response_data.data.reverse();
-			}
-
-			console.log(response_data);
-
 			if (typeof response_data !== "undefined" && response_data.data !== this.settings.data) {
 				this.settings.data = response_data.data;
+
+				if (this.settings.order == "desc") {
+					response_data.data.reverse();
+				}
 			}
 
-			console.log(this);
+			var offset_append = this.settings.offset + 5;
 
+			if (this.settings.data.length <= offset_append) {
+				offset_append = this.settings.data.length;
+				$(".events-more__button").addClass("is-disabled");
+			} else {
+				$(".events-more__button").removeClass("is-disabled");
+			}
 
-			for (var item_index = this.settings.offset; item_index < this.settings.offset + 5; item_index++) {
+			for (var item_index = this.settings.offset; item_index < offset_append; item_index++) {
 				var item = this.settings.data[item_index]
 					,	event_date = new Date(item.time)
 					,	$new_element = $($(templates["event"]).clone());
