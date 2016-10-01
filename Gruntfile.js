@@ -69,15 +69,17 @@ module.exports = function(grunt){
 		},
 
 		watch: {
+			options: {
+				livereload: true
+			},
 			js: {
 				files: ['js/**/*.js'],
-				tasks: ['concat']
+				tasks: ['concat'],
 			},
 			sass: {
 				files: ['scss/**/*.scss'],
 				tasks: ['sass'],
 				options: {
-					livereload: true,
 					sourcemap: true
 				}
 			},

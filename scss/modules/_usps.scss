@@ -11,6 +11,7 @@
 .usps {
 	position: relative;
 	width: 100%;
+	background-color: $cl-primary;
 
 	.container {
 		z-index: 200;
@@ -28,6 +29,7 @@
 .usp {
 	margin: 3rem 0;
 	padding: 0 2rem;
+	color: $cl-white;
 
 	@include md('>') {
 		width: 30%;
@@ -42,7 +44,6 @@
 	h2 {
 		font-family: $serif;
 		font-size: 40px;
-		text-shadow: 0 0 10px rgba($cl-white, 1);
 
 		@include sm('<') {
 			text-align: center;

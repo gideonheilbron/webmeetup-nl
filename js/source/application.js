@@ -9,13 +9,6 @@ $(document).ready(function() {
 		speed: 0.5
 	});
 
-	$('.js_parallax-2').parallax({
-		imageSrc: 'images/usps-banner.jpg',
-		naturalWidth: 2896,
-		naturalHeight: 1944,
-		speed: 0.7
-	});
-
 	$(window).trigger('resize').trigger('scroll');
 
 	meetupApi = $.meetupApi();
