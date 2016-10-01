@@ -9,6 +9,13 @@ $(document).ready(function() {
 		speed: 0.5
 	});
 
+	$('.js_parallax-2').parallax({
+		imageSrc: 'images/slack.png',
+		naturalWidth: 2896,
+		naturalHeight: 1944,
+		speed: 0.5
+	});
+
 	$(window).trigger('resize').trigger('scroll');
 
 	meetupApi = $.meetupApi();
