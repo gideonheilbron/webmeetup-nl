@@ -1,0 +1,22 @@
+//////////////////
+//
+//	File: _slack.scss
+//	Description: Slack styling for join section
+//
+//////////////////
+
+.slack {
+	padding: 100px 0;
+	text-align: center;
+	background-color: $cl-white;
+
+	iframe {
+		margin-top: 10px;
+	}
+
+	h1 {
+		color: $cl-white;
+		font-family: $base-font;
+		text-shadow: 0 1px 10px rgba($cl-black, .4);
+	}
+}

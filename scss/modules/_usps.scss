@@ -36,17 +36,13 @@
 	}
 
 	p {
-		@include sm('<') {
-			text-align: center;
-		}
+		text-align: center;
+		line-height: 1.4;
 	}
 
 	h2 {
-		font-family: $serif;
-		font-size: 40px;
-
-		@include sm('<') {
-			text-align: center;
-		}
+		font-family: $base-font;
+		font-size: 30px;
+		text-align: center;
 	}
 }
