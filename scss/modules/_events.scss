@@ -404,9 +404,16 @@
 		cursor: pointer;
 		color: $cl-primary;
 		font-weight: bold;
-		transition-property: color, background, box-shadow;
+		transition-property: color, background, box-shadow, opacity, visibility;
 		transition-duration: 300ms;
 		margin-bottom: 2rem;
+
+		&.is-disabled {
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+			color: $cl-border;
+		}
 
 		&:hover,
 		&:focus {
