@@ -69,7 +69,7 @@ $(document).ready(function() {
 		return init();
 
 		function init() {
-			$events_wrapper = $("js_events");
+			$events_wrapper = $(".js_events");
 			createTemplate("rsvp-list__member", ".rsvp-list__member");
 			createTemplate("event", ".event");
 
