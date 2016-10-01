@@ -10,16 +10,16 @@
 //	Breakpoint indicator
 ////////////////////////
 
-body:after {
-	@extend .depth-10;
-	position: fixed;
-	right: 5px;
-	bottom: 5px;
-	display: block;
-	padding: 5px;
-	color: $cl-white;
-	background-color: rgba($cl-black, .8);
-}
+// body:after {
+// 	@extend .depth-10;
+// 	position: fixed;
+// 	right: 5px;
+// 	bottom: 5px;
+// 	display: block;
+// 	padding: 5px;
+// 	color: $cl-white;
+// 	background-color: rgba($cl-black, .8);
+// }
 
 
 ////////////////////////
